@@ -1,3 +1,0 @@
-D:/Coding/Project/SFML/RocketUp/build/CMakeFiles/nibbles.dir
-D:/Coding/Project/SFML/RocketUp/build/CMakeFiles/edit_cache.dir
-D:/Coding/Project/SFML/RocketUp/build/CMakeFiles/rebuild_cache.dir
