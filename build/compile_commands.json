@@ -1,0 +1,37 @@
+[
+{
+  "directory": "D:/Coding/Project/SFML/UploadGithub/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/nibbles.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles\\nibbles.dir\\src\\main.cpp.obj -c D:\\Coding\\Project\\SFML\\UploadGithub\\src\\main.cpp",
+  "file": "D:/Coding/Project/SFML/UploadGithub/src/main.cpp"
+},
+{
+  "directory": "D:/Coding/Project/SFML/UploadGithub/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/nibbles.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles\\nibbles.dir\\src\\mainMenu.cpp.obj -c D:\\Coding\\Project\\SFML\\UploadGithub\\src\\mainMenu.cpp",
+  "file": "D:/Coding/Project/SFML/UploadGithub/src/mainMenu.cpp"
+},
+{
+  "directory": "D:/Coding/Project/SFML/UploadGithub/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/nibbles.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles\\nibbles.dir\\src\\engine.cpp.obj -c D:\\Coding\\Project\\SFML\\UploadGithub\\src\\engine.cpp",
+  "file": "D:/Coding/Project/SFML/UploadGithub/src/engine.cpp"
+},
+{
+  "directory": "D:/Coding/Project/SFML/UploadGithub/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/nibbles.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles\\nibbles.dir\\src\\rocket.cpp.obj -c D:\\Coding\\Project\\SFML\\UploadGithub\\src\\rocket.cpp",
+  "file": "D:/Coding/Project/SFML/UploadGithub/src/rocket.cpp"
+},
+{
+  "directory": "D:/Coding/Project/SFML/UploadGithub/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/nibbles.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles\\nibbles.dir\\src\\background.cpp.obj -c D:\\Coding\\Project\\SFML\\UploadGithub\\src\\background.cpp",
+  "file": "D:/Coding/Project/SFML/UploadGithub/src/background.cpp"
+},
+{
+  "directory": "D:/Coding/Project/SFML/UploadGithub/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/nibbles.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles\\nibbles.dir\\src\\obstacle.cpp.obj -c D:\\Coding\\Project\\SFML\\UploadGithub\\src\\obstacle.cpp",
+  "file": "D:/Coding/Project/SFML/UploadGithub/src/obstacle.cpp"
+},
+{
+  "directory": "D:/Coding/Project/SFML/UploadGithub/build",
+  "command": "C:\\MinGW\\bin\\g++.exe  @CMakeFiles/nibbles.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles\\nibbles.dir\\src\\rocketBullet.cpp.obj -c D:\\Coding\\Project\\SFML\\UploadGithub\\src\\rocketBullet.cpp",
+  "file": "D:/Coding/Project/SFML/UploadGithub/src/rocketBullet.cpp"
+}
+]
