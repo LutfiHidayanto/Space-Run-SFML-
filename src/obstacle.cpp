@@ -38,6 +38,38 @@ void Obstacle::MovementF(float vX, float vY) {
     sprite.setPosition(sprite.getPosition().x + vX, sprite.getPosition().y + vY);
 }
 
+// Collision
+
+void Obstacle::collision() {
+    // Left
+    if (sprite.getPosition().x < 0.f) {
+        sprite.setPosition(sf::Vector2f(1280.f, sprite.getPosition().y));
+    }
+    // Right
+    if (sprite.getPosition().x > 1280.f) {
+        sprite.setPosition(sf::Vector2f(0.f, sprite.getPosition().y));
+    }   
+}
+
+// HP
+
+void Obstacle::setHp(const int hpS)
+{
+    hp = hpS;
+}
+
+void Obstacle::loseHp(const int hpLose)
+{
+    hp -= hpLose;
+    if (hp < 0) hp = 0;
+}
+
+const int &Obstacle::getHp() const
+{
+    return hp;
+}
+
+
 /*
     UFO
 */
@@ -47,27 +79,27 @@ Ufo::Ufo(sf::Vector2f p, int jenis)
     switch (jenis)
     {
     case 1:
-        if(!spritetxt.loadFromFile("D:/Coding/Project/SFML/RocketUp/Gambar/Ufomerah.png")) {
+        if(!spritetxt.loadFromFile("../Gambar/Ufomerah.png")) {
                 std::cout << "File not found" << std:: endl;
         }
         break;
     case 2:
-        if(!spritetxt.loadFromFile("D:/Coding/Project/SFML/RocketUp/Gambar/Ufomerah2.png")) {
+        if(!spritetxt.loadFromFile("../Gambar/Ufomerah2.png")) {
                 std::cout << "File not found" << std:: endl;
         }
         break;
     case 3:
-        if(!spritetxt.loadFromFile("D:/Coding/Project/SFML/RocketUp/Gambar/Ufooren.png")) {
+        if(!spritetxt.loadFromFile("../Gambar/Ufooren.png")) {
                 std::cout << "File not found" << std:: endl;
         }
         break;
     case 4:
-        if(!spritetxt.loadFromFile("D:/Coding/Project/SFML/RocketUp/Gambar/Ufokuning.png")) {
+        if(!spritetxt.loadFromFile("../Gambar/Ufokuning.png")) {
                 std::cout << "File not found" << std:: endl;
         }
         break;
     case 5:
-        if(!spritetxt.loadFromFile("D:/Coding/Project/SFML/RocketUp/Gambar/Ufoijo.png")) {
+        if(!spritetxt.loadFromFile("../Gambar/Ufoijo.png")) {
                 std::cout << "File not found" << std:: endl;
         }
         break;
@@ -75,8 +107,11 @@ Ufo::Ufo(sf::Vector2f p, int jenis)
         break;
     }
     sprite.setTexture(spritetxt);
-    sprite.setScale({1.1, 1.1});
-    // Movement(jenis);
+    sprite.setScale({1.3, 1.3});
+
+    // INIT HP
+    hpMax = 2;
+    hp = hpMax;
 }
 
 // physics ufo
@@ -111,21 +146,6 @@ void Ufo::movementUfo(int jenis) {
     }
 }
 
-
-
-// Collision
-
-void Obstacle::collision() {
-    // Left
-    if (sprite.getPosition().x < 0.f) {
-        sprite.setPosition(sf::Vector2f(1280.f, sprite.getPosition().y));
-    }
-    // Right
-    if (sprite.getPosition().x > 1280.f) {
-        sprite.setPosition(sf::Vector2f(0.f, sprite.getPosition().y));
-    }   
-}
-
 /*
     BOSS
 */
@@ -134,10 +154,12 @@ void Obstacle::collision() {
 Boss::Boss(sf::Vector2f p):
     Obstacle(p)
 {
-    if(!spritetxt.loadFromFile("D:/Coding/Project/SFML/RocketUp/Gambar/PesawatBoss.png")) {
+    if(!spritetxt.loadFromFile("../Gambar/PesawatBoss.png")) {
                 std::cout << "File not found" << std:: endl;
     }
     sprite.setTexture(spritetxt);
+    hpMax = 5;
+    hp = hpMax;
 }
 
 
@@ -166,6 +188,7 @@ void Boss::movementBoss(int jenis) {
     default:
         break;
     }
+    sprite.setScale(sf::Vector2f(1.2, 1.2));
 }
 
 /*
@@ -174,12 +197,13 @@ void Boss::movementBoss(int jenis) {
 
 Pikachu::Pikachu(sf::Vector2f p):
     Obstacle(p) {
-    if(!spritetxt.loadFromFile("D:/Coding/Project/SFML/RocketUp/Gambar/Pikachu.png")){
+    if(!spritetxt.loadFromFile("../Gambar/Pikachu.png")){
                 std::cout << "ERROR PIKACHU NOT LOADED" << std::endl;
     }
     sprite.setTexture(spritetxt);
 }
 
+// PIKACHU MOVEMENT
 void Pikachu::movementPika(int jenis)
 {
     switch (jenis)
@@ -204,14 +228,19 @@ void Pikachu::movementPika(int jenis)
     }
 }
 
+/*
+    ROCKET ENEMY
+*/
+
 RocketEnemy::RocketEnemy(sf::Vector2f p):
     Obstacle(p) {
-    if(!spritetxt.loadFromFile("D:/Coding/Project/SFML/RocketUp/Gambar/Rocket.png")){
+    if(!spritetxt.loadFromFile("../Gambar/Rocket.png")){
                 std::cout << "ERROR ROCKET ENEMY NOT LOADED" << std::endl;
     }
     sprite.setTexture(spritetxt);
 }
 
+// ROCKET ENEMY MOVEMENT
 void RocketEnemy::movementREnemy() {
     MovementF(10.f, 0.f);
 }

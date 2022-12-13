@@ -3,7 +3,7 @@ project(nibbles)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(nibbles src/main.cpp src/mainMenu.cpp headers/mainMenu.hpp src/engine.cpp headers/engine.hpp src/rocket.cpp headers/rocket.hpp src/background.cpp headers/background.hpp src/obstacle.cpp headers/obstacle.hpp src)
+add_executable(nibbles src/main.cpp src/mainMenu.cpp headers/mainMenu.hpp src/engine.cpp headers/engine.hpp src/rocket.cpp headers/rocket.hpp src/background.cpp headers/background.hpp src/obstacle.cpp headers/obstacle.hpp src/rocketBullet.cpp headers/rocketBullet.hpp src)
 
 include_directories(headers /usr/include c:/SFML/include)
 
@@ -15,7 +15,7 @@ if (SFML_FOUND)
     target_link_libraries(nibbles ${SFML_LIBRARIES})
 endif()
 
-file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
+# file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
 
 # Copy dlls to build directory
 if(WIN32)

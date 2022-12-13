@@ -1,9 +1,12 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include <string>
 #include "rocket.hpp"
 #include "background.hpp"
 #include "obstacle.hpp"
+#include <vector>
+#include "rocketBullet.hpp"
 
 class Engine {
 private:
@@ -39,8 +42,15 @@ private:
     sf::Vector2f position;
     sf::Vector2f position2;
 
-    // rocket
-    Rocket rocket;
+    // ROCKET
+    Rocket *rocket;
+    sf::Vector2f rocketPosition;
+    // ROCKET HP
+    sf::RectangleShape hpBar;
+    sf::RectangleShape hpBarBack;
+    // BULLET
+    std::map<std::string, sf::Texture*> bulletTxtS;
+    std::vector<RocketBullet*> bullets;
     float movementSpeed = 5.f;
 
     // background
@@ -52,7 +62,7 @@ private:
     void initPoints();
 
     // points
-    int points = 0;;
+    int points;
     sf::Font font;
     sf::Text PointsTxt;
     sf::Sprite Pointsbg;
@@ -61,17 +71,26 @@ private:
     // SOUND AND MUSIC
     // Gameplay Music
     sf::Music gameMusic;
-    // Crash Sound
-    sf::SoundBuffer bufferSound;
-    sf::Sound sound;
 
-    // PLAYER HP
-    sf::RectangleShape hpBar;
-    sf::RectangleShape hpBarBack;
+    // Crash Sound
+    sf::SoundBuffer bufferCrash;
+    sf::Sound soundcr;
+
+    // Gameover Sound
+    sf::SoundBuffer buffergameOver;
+    sf::Sound soundgO;
+
+    // Destroy Sound
+    sf::SoundBuffer bufferdestroy;
+    sf::Sound soundDs;
+
+    
 
     // GAME OVER
     sf::Sprite gameOverSp;
     sf::Texture gameOverTxt;
+    sf::Text PlayAgain;
+
 public:
     // cons decs
     Engine();
@@ -83,14 +102,19 @@ public:
     void update();
 
     const bool getWindowOpen() const;
+    const sf::Window getWindowPollEv() const;
     void closeGame();
 
     // points
     int getPoints();
     void updatePoints();
-    void updateUfoTime();
 
     // Hp bar
     void updateHpBar();
 
+    bool isGameOver();
+
+    void GameOverDisplay();
+    bool RestartPressed();
+    void updateBullets();
 };

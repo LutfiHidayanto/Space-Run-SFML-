@@ -12,6 +12,9 @@ protected:
     float deltaTime;
     float timer;
     float maxTimer;
+    // hp
+    int hp;
+    int hpMax;
 public:
     Obstacle(sf::Vector2f p);
     void drawObsl(sf::RenderWindow &w);
@@ -22,10 +25,13 @@ public:
 
     void collision();
     void MovementF(float vX, float vY);
-
+    // hp
+    void setHp(const int hpS);
+    void loseHp(const int hpLose);
+    const int &getHp() const;
 };
 
-class Ufo:public Obstacle {
+class Ufo:public Obstacle {    
 public:
     Ufo(sf::Vector2f p, int jenis);
     void movementUfo(int jenis);
